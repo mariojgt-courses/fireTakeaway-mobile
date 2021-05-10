@@ -1,0 +1,7 @@
+{
+  "name": "fireTakeaway",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
