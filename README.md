@@ -8,5 +8,7 @@ Just clone the repo and inside the folder run
 - npm install
 - ionic server
 
-if you don't have ionic installed you can find the documentation in here https://ionicframework.com/docs/intro/cli
+if you don't have ionic installed you can find the documentation in here https://ionicframework.com/docs/intro/cli ,
+
+you can also find the list of components in here https://ionicframework.com/docs/api/action-sheet .
 
