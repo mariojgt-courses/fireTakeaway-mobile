@@ -7,6 +7,9 @@ Just clone the repo and inside the folder run
 
 - npm install
 - ionic server
+# Make sure you runing on the lasted version of the packages using
+- npm outdate
+- npm upgrade
 
 if you don't have ionic installed you can find the documentation in here https://ionicframework.com/docs/intro/cli ,
 

@@ -1,5 +1,5 @@
 {
-  "name": "fireTakeaway",
+  "name": "fire-takeaway",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -39,5 +39,5 @@
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-0"
   },
-  "description": "An Ionic project"
+  "description": "Part of a laravel series, how to create a webserver and integrate with a mobile aplication."
 }
