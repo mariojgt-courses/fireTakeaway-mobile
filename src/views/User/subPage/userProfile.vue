@@ -58,6 +58,9 @@ import axios from "axios";
 // Import the reference
 import * as configEndpoint from "../../../Core/apiEndpoint";
 
+// Importing some global classes
+import * as global from "../../../Core/mixin";
+
 export default {
     name: "user-profile",
     props: {
@@ -76,8 +79,8 @@ export default {
     },
     methods: {
         logout() {
-            this.clearStorage();
-            this.openToast("by :)");
+            global.clearStorage();
+            global.openToast("by :)");
             setTimeout(async () => {
                 // Enable the menu
                 //this.emitter.emit("toogle-menu");
@@ -111,9 +114,9 @@ export default {
         },
         async updateUserProfile() {
             // First put loading state
-            this.presentLoading();
+            global.presentLoading();
 
-            const sanctumToken = await this.getAuthToken();
+            const sanctumToken = await global.getAuthToken();
 
             // Header with the sanctum token
             const config = {
@@ -140,11 +143,11 @@ export default {
                     )) {
                         message += value + "<br> ";
                     }
-                    this.openToast(message);
-                    this.hideLoading();
+                    global.openToast(message);
+                    global.hideLoading();
                 });
 
-            this.hideLoading();
+            global.hideLoading();
             // If not empty display the good message
             if (response) {
                 console.log(response);

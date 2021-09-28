@@ -38,6 +38,9 @@ import axios from "axios";
 // Import the reference
 import * as configEndpoint from "../../../Core/apiEndpoint";
 
+// Importing some global classes
+import * as global from "../../../Core/mixin";
+
 export default {
     name: "login-slide",
     data: function() {
@@ -49,7 +52,7 @@ export default {
     methods: {
         async doLogin() {
             // First put loading state
-            this.presentLoading();
+            global.presentLoading();
             // Do the Request And wait for the response
             const response = await axios
                 .post(configEndpoint.LoginApi, {
@@ -68,14 +71,14 @@ export default {
                     )) {
                         message += value + "<br> ";
                     }
-                    this.openToast(message);
-                    this.hideLoading();
+                    global.openToast(message);
+                    global.hideLoading();
                 });
-            this.hideLoading();
+            global.hideLoading();
             // If not empty display the good message
             if (response) {
                 // Auth token response
-                this.setAuthToken(response);
+                global.setAuthToken(response);
                 // Redirect to the login page
                 setTimeout(async () => {
                     // Enable the menu
@@ -86,7 +89,7 @@ export default {
             }
         },
         async testToken() {
-            console.log(await this.getAuthToken());
+            console.log(await global.getAuthToken());
         },
     },
     computed: {},

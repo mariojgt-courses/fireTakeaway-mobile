@@ -93,6 +93,9 @@ import axios from "axios";
 // Import the reference
 import * as configEndpoint from "../../../Core/apiEndpoint";
 
+// Importing some global classes
+import * as global from "../../../Core/mixin";
+
 export default {
     name: "add-order",
     props: {
@@ -111,9 +114,9 @@ export default {
     methods: {
         async productlookup() {
             // First put loading state
-            this.presentLoading();
+            global.presentLoading();
 
-            const sanctumToken = await this.getAuthToken();
+            const sanctumToken = await global.getAuthToken();
 
             // Header with the sanctum token
             const config = {
@@ -142,11 +145,11 @@ export default {
                     )) {
                         message += value + "<br> ";
                     }
-                    this.openToast(message);
-                    this.hideLoading();
+                    global.openToast(message);
+                    global.hideLoading();
                 });
 
-            this.hideLoading();
+            global.hideLoading();
             // If not empty display the good message
             if (response) {
                 this.products = response.data;
@@ -200,18 +203,18 @@ export default {
                     )) {
                         message += value + "<br> ";
                     }
-                    this.openToast(message);
-                    this.hideLoading();
+                    global.openToast(message);
+                    global.hideLoading();
                 });
 
-            this.hideLoading();
+            global.hideLoading();
             // If not empty display the good message
             if (response) {
-                this.openToast('Order placed.', 'primary');
+                global.openToast('Order placed.', 'primary');
             }
 
             } else {
-                this.openToast('Sorry you need to add a item to the order.');
+                global.openToast('Sorry you need to add a item to the order.');
             }
         }
     },

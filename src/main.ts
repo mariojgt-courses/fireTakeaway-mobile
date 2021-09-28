@@ -27,14 +27,6 @@ const app = createApp(App)
     .use(IonicVue)
     .use(router);
 
-// Import mixing
-import mixin from "./Core/mixin";
-
-// For future ref
-app.mixin({
-    mixins: [mixin],
-});
-
 router.isReady().then(() => {
     app.mount("#app");
 });

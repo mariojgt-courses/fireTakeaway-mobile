@@ -49,6 +49,9 @@ import axios from "axios";
 // Import the reference
 import * as configEndpoint from "../../../Core/apiEndpoint";
 
+// Importing some global classes
+import * as global from "../../../Core/mixin";
+
 export default {
     name: "register",
     props: {
@@ -67,7 +70,7 @@ export default {
     methods: {
         async submitData() {
             // First put loading state
-            this.presentLoading();
+            global.presentLoading();
             // Do the Request And wait for the response
             const response = await axios
                 .post(configEndpoint.RegisterApi, {
@@ -87,13 +90,13 @@ export default {
                     )) {
                         message += value + "<br> ";
                     }
-                    this.openToast(message);
-                    this.hideLoading();
+                    global.openToast(message);
+                    global.hideLoading();
                 });
-            this.hideLoading();
+            global.hideLoading();
             // If not empty display the good message
             if (response) {
-                this.openToast(response, 'success');
+                global.openToast(response, 'success');
             }
         },
     },
