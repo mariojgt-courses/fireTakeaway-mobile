@@ -166,14 +166,13 @@ export default {
         async cofirmOrder () {
 
             // User ref
-            const userInfo = await this.getUser();
+            const userInfo = await global.getUser();
 
             if (this.addedProducts[0]) {
-
             // First put loading state
-            this.presentLoading();
+            global.presentLoading();
 
-            const sanctumToken = await this.getAuthToken();
+            const sanctumToken = await global.getAuthToken();
 
             // Header with the sanctum token
             const config = {

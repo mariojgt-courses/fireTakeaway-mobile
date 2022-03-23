@@ -89,7 +89,7 @@ export default {
             }, 300);
         },
         async getUserInformation() {
-            const sanctumToken = await this.getAuthToken();
+            const sanctumToken = await global.getAuthToken();
 
             // Header with the sanctum token
             const config = {
@@ -110,7 +110,7 @@ export default {
             this.username = response.name;
             this.avatar = response.avatar;
             // Add the user to the local storage
-            this.setUser(response);
+            global.setUser(response);
         },
         async updateUserProfile() {
             // First put loading state
